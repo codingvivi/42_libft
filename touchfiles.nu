@@ -24,7 +24,7 @@ let files_to_make = [
 
 
 $files_to_make | each {|filename|
- let full_file_name = ($filename | append ".c" | str join '')
+ let full_file_name = ($filename | append ".c" | str join '' | str replace -r '^' 'ft_' )
  touch $full_file_name
  print $'touched ($full_file_name)'
 } 
