@@ -3,4 +3,5 @@ compile_flags.txt
 .clang-tidy
 unity/
 *.pdf
-tmp/
+*.o
+reference/

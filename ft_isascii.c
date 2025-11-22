@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ~/Development/Projects/2025/2025-11-17-42_lib      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:44:21 by lrain             #+#    #+#             */
-/*   Updated: 2025/11/20 03:48:04 by lrain            ###   ########.fr       */
+/*   Updated: 2025/11/20 16:17:16 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ctype.h>
 
-int	ft_isascii(int c)
-{
-	c &= ~127;     /* makes c be anything iff its larger */
-	return (!(c)); /* if non masked, outside range bits let thru anything */
-}
 /*
+unsigned example:
+
 ...0000 0111 1111 all 1s for bits in range
 |1's complement
 v
@@ -32,4 +29,16 @@ v
 1111 1000 0000 range already 0
  --------------
 0000 0000 0000 everything will be 0
+
+signed uses 2's complement, but the pattern will still work
+
 */
+
+int	ft_isascii(int c)
+{
+	const int	mask = ~0x7f;
+
+	/* 127, reversed, masks bits up to 127*/
+	c &= mask;     /* only bits larger 127 will result in non 0*/
+	return (!(c)); /* if non masked, outside range bits let thru anything */
+}

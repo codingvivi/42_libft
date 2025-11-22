@@ -22,7 +22,7 @@ def main [] {
      'strnstr',
      'strchr',
      'atoi',
-     'asdf'
+     # 'asdf'
     ]
 
     let ft_names = ($libc_fns | str replace -r '^' 'ft_')
@@ -37,9 +37,14 @@ def main [] {
         | merge ($ref_file_paths | wrap 'ref_path')
         | merge ($ft_names | wrap 'ft_name')
         | merge ($ft_files | wrap 'ft_file')
+        | make_protos 
     )
+
+    print $fn_table
     create_missing_files $fn_table.ft_file
-    # add_protos_to_files
+    write_srcs_to_make $fn_table.ft_file
+    # write_protos_to_files $fn_table
+
 
 }
 
@@ -58,6 +63,31 @@ def get_ref_paths [fn_names: list, ref_dir: path] {
         }
     }
 
+}
+
+def make_protos [] {
+    each {|row|
+        $row
+        | insert ref_protos (
+            if ($row.ref_path | is-empty) {
+                null
+            } else {
+                try {
+                    open $row.ref_path
+                    | lines 
+                    | where $it =~ $row.fn
+                    | where $it =~ '\('
+                    | where not ($it | str starts-with '#')  
+                    | where not ($it | str starts-with '//') 
+                    | where not ($it | str contains '/*')    
+                    | first
+                    | str replace -r '^' 'ft_'
+                } catch {
+                    null
+                }
+            }
+        )
+    }
 }
 
 
@@ -80,5 +110,67 @@ def create_missing_files [file_list: list] {
         | length
     )
 
-    print $"File creation done! Created ($num_files_created) files in total.\nHow touching..."
+    print $"File creation done! Created ($num_files_created) files in total."
+    if ($num_files_created > 0) {
+        print 'How touching 🥹'
+    } else {
+        print 'Not very touching 🥀'
+    }
+    print ''
+    
 }
+
+def write_srcs_to_make [files: list] {
+    
+    let src_string = (
+        $files
+        | str replace -r '^' (char tab)
+        | str join " \\ \n" 
+    )
+    let src_declare =  'SRCS = '
+
+    let makefile_contents = open 'Makefile'
+    if ($makefile_contents | str contains $src_declare) {
+        print 'File already has sources. skipping...'
+    } else {
+        (
+            $makefile_contents
+            | lines
+            | insert 1 $src_declare
+            | insert 2 $src_string
+            | str join (char newline)
+            #| printf $in
+        )
+        | save -f Makefile
+        print 'Added SRCS variable with value!'
+
+    }
+}
+
+    
+
+def write_protos_to_files [fn_table: table] {
+
+    $fn_table
+    | where {|row| $row.protos | is-not-emtpy }
+    | each {|row|
+
+        let file_contains_proto = (
+            open $row.ft_files
+            | lines
+            | any {|line|
+                ($line | str replace -ar '\s+' ' ' | str trim) 
+                | like ($row.protos | str replace -ar '\s+' ' ' | str trim)
+            }
+        )
+
+        if not $file_contains_proto {
+            let str = $'($row.ref_protos)\n{\n}'
+            print $'appending ($str) to file:($row.ft_file)'
+            # $row.ft_files | save --append $row.ft_files
+
+        }
+    }
+    | length | print $'Added to ($in) new files'
+}
+
