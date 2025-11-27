@@ -6,11 +6,11 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 01:23:38 by lrain             #+#    #+#             */
-/*   Updated: 2025/11/22 15:41:54 by lrain            ###   ########.fr       */
+/*   Updated: 2025/11/24 20:39:43 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 /*
 01000001 A
@@ -22,7 +22,7 @@ adds 32 if number has 0 in
 adds 32 if 0-31 or 65-97
 */
 
-int	isalpha(int c)
+int	ft_isalpha(int c)
 {
 	unsigned int	temp;
 

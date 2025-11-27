@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   test/helpers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/26 16:09:07 by lrain             #+#    #+#             */
-/*   Updated: 2025/11/26 16:44:28 by lrain            ###   ########.fr       */
+/*   Created: 2025/11/26 16:47:54 by lrain             #+#    #+#             */
+/*   Updated: 2025/11/26 18:40:56 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stddef.h>
+#ifndef HELPERS_H
 
-size_t	ft_strlen(const char *str)
-{
-}
+# define HELPERS_H
+#endif
