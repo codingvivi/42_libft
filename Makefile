@@ -84,9 +84,11 @@ $(PTH_BLD_OBJ)/%.o: $(PTH_SRC)/%.c | $(PTH_BLD_OBJ)
 test: test-all
 
 test-all: $(TEST_BINS)
-	@echo "Running all tests..."
+	@echo "Running all tests...\n"
 	@for test_bin in $(TEST_BINS); do \
+		echo "===> Running: $$test_bin"; \
 		./$$test_bin || exit 1; \
+		echo "\n"; \
 	done
 
 $(PTH_BLD_TEST_BIN)/%_Runner$(TARGET_EXTENSION): $(PTH_BLD_TEST_OBJ)/test_%.o $(NAME) $(PTH_BLD_TEST_OBJ)/test_%_Runner.o $(PTH_BLD_UNITY_OBJ)/unity.o | $(PTH_BLD_TEST_BIN)
