@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 17:48:44 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/03 17:59:02 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/03 18:38:57 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ void	check_against_ctype(int test_input)
 	bool	libc_result;
 	bool	ft_result;
 
-	libc_result = isalpha(test_input);
-	ft_result = ft_isalpha(test_input);
+	libc_result = isalnum(test_input);
+	ft_result = ft_isalnum(test_input);
 	TEST_ASSERT(libc_result == ft_result);
-	VERBOSE_PRINT("✓ check ok! taget: %d, actual: %d", libc_result, ft_result);
+	VERBOSE_PRINT("✓ check ok! target: %d, actual: %d", libc_result, ft_result);
 }
 
 void	test_asciis_unsigned(void)

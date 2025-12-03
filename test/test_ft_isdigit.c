@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test/test_ft_isascii.c                             :+:      :+:    :+:   */
+/*   test/test_ft_isdigit.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/26 16:22:06 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/03 18:39:34 by lrain            ###   ########.fr       */
+/*   Created: 2025/11/26 17:11:02 by lrain             #+#    #+#             */
+/*   Updated: 2025/12/03 18:38:49 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	check_against_ctype(int test_input)
 	bool	libc_result;
 	bool	ft_result;
 
-	libc_result = isascii(test_input);
-	ft_result = ft_isascii(test_input);
+	libc_result = isdigit(test_input);
+	ft_result = ft_isdigit(test_input);
 	TEST_ASSERT(libc_result == ft_result);
 	VERBOSE_PRINT("✓ check ok! target: %d, actual: %d", libc_result, ft_result);
 }
