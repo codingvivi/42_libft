@@ -70,6 +70,8 @@ TEST_SRC_FILES = $(wildcard $(PTH_SRC_TEST)/test_*.c)
 TEST_NAMES = $(patsubst $(PTH_SRC_TEST)/test_%.c,%,$(TEST_SRC_FILES))
 TEST_BINS = $(addprefix $(PTH_BLD_TEST_BIN)/,$(addsuffix _Runner$(TARGET_EXTENSION),$(TEST_NAMES)))
 
+.PRECIOUS: $(PTH_BLD_TEST_RUNSRC)/test_%_Runner.c $(PTH_BLD_TEST_OBJ)/test_%.o $(PTH_BLD_TEST_OBJ)/test_%_Runner.o
+
 .PHONY: all clean fclean re test test-all
 
 all: $(NAME)
