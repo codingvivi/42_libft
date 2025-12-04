@@ -6,8 +6,44 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:26:32 by lrain             #+#    #+#             */
-/*   Updated: 2025/11/23 17:38:47 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/04 19:28:33 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	ft_isspace(int i);
+
+int	ft_atoi(const char *str)
+{
+	int	nb;
+	int	neg;
+
+	nb = 0;
+	neg = 0;
+	while (ft_isspace(*str))
+		str++;
+	if (*str == '+' || *str == '-')
+	{
+		if (*str == '-')
+			neg = 1;
+		str++;
+	}
+	while (ft_isdigit(*str))
+		/* nb = nb * 10 + (prefix * (*str++ - '0'));
+		mine: more functional but multiplies every time*/
+		nb = nb * 10 - (*str++ - '\0');
+	if (!neg)
+		nb *= -1;
+	return (nb);
+}
+
+static int	ft_isspace(int i)
+{
+	unsigned int		temp;
+	const signed int	range = '\r' - '\t';
+
+	temp = (unsigned)i;
+	temp -= '\t';
+	return (temp <= range || i == ' ');
+}
