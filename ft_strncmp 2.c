@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ex01/ft_strncmp.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
+/*   By: lrain <lrain@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 21:39:07 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/09 16:55:40 by lrain            ###   ########.fr       */
+/*   Updated: 2025/10/29 21:42:21 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-int	ft_strncmp(const char *s1, char *s2, size_t n)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	size_t	i;
-
-	i = 0;
-	while (*s1 != '\0' && *s2 != '\0' && *s1 == *s2 && n < i)
+	while (n && *s1 && *s1 == *s2)
 	{
-		i++;
 		s1++;
 		s2++;
+		n--;
 	}
 	return (*s1 - *s2);
 }

@@ -44,6 +44,8 @@ SRCS = \
 	ft_isascii.c \
 	ft_isprint.c \
 	ft_strlen.c \
+	ft_strlcat.c \
+	ft_strncmp.c \
 
 
 SRCS_TO_ADD = \
@@ -52,9 +54,7 @@ SRCS_TO_ADD = \
 	ft_memcpy.c \
 	ft_memmove.c \
 	ft_strrchr.c \
-	ft_strncmp.c \
 	ft_strlcpy.c \
-	ft_strlcat.c \
 	ft_memchr.c \
 	ft_memcmp.c \
 	ft_toupper.c \
