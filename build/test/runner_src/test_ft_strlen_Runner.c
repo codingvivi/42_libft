@@ -4,11 +4,7 @@
 #include "unity.h"
 #include "../libft.h"
 #include "helpers.h"
-#include <assert.h>
 #include <ctype.h>
-#include <stdbool.h>
-#include <stddef.h>
-#include <stdio.h>
 #include <string.h>
 
 /*=======Structure Used By Test Runner=====*/
@@ -96,25 +92,25 @@ int main(void)
 
   run_test_params_arr[0].func = test_write_uppercase;
   run_test_params_arr[0].name = "test_write_uppercase";
-  run_test_params_arr[0].line_num = 34;
+  run_test_params_arr[0].line_num = 30;
   run_test_params_arr[1].func = test_write_lowercase;
   run_test_params_arr[1].name = "test_write_lowercase";
-  run_test_params_arr[1].line_num = 43;
+  run_test_params_arr[1].line_num = 39;
   run_test_params_arr[2].func = test_write_numbers;
   run_test_params_arr[2].name = "test_write_numbers";
-  run_test_params_arr[2].line_num = 52;
+  run_test_params_arr[2].line_num = 48;
   run_test_params_arr[3].func = test_write_specials;
   run_test_params_arr[3].name = "test_write_specials";
-  run_test_params_arr[3].line_num = 61;
+  run_test_params_arr[3].line_num = 57;
   run_test_params_arr[4].func = test_write_whitespace;
   run_test_params_arr[4].name = "test_write_whitespace";
-  run_test_params_arr[4].line_num = 70;
+  run_test_params_arr[4].line_num = 66;
   run_test_params_arr[5].func = test_write_all_printables;
   run_test_params_arr[5].name = "test_write_all_printables";
-  run_test_params_arr[5].line_num = 79;
+  run_test_params_arr[5].line_num = 75;
   run_test_params_arr[6].func = test_write_empty_string;
   run_test_params_arr[6].name = "test_write_empty_string";
-  run_test_params_arr[6].line_num = 88;
+  run_test_params_arr[6].line_num = 84;
 
   for (int i = 0; i < number_of_tests; i++)
   {

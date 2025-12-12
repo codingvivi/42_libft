@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat copy.c                                  :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/26 18:26:46 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/09 17:21:34 by lrain            ###   ########.fr       */
+/*   Created: 2025/12/08 18:26:46 by lrain             #+#    #+#             */
+/*   Updated: 2025/12/11 16:37:04 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stddef.h>
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+size_t	ft_strlcat(char *dest, const char *src, size_t count)
 {
-	unsigned int	length_dest_str;
-	unsigned int	length_src_str;
-	unsigned int	i;
+	size_t	dlen;
+	size_t	slen;
+	size_t	i;
 
-	length_src_str = ft_strlen(src);
+	slen = ft_strlen(src);
 	i = 0;
-	while (i < size && dest[i] != '\0')
+	while (i < count && dest[i] != '\0')
 		i++;
-	length_dest_str = i;
-	if (i < size)
+	dlen = i;
+	if (i < count)
 	{
-		while (i < size - 1 && *src != '\0')
+		while (i < count - 1 && *src != '\0')
 		{
 			dest[i] = *src;
 			i++;
@@ -33,5 +34,5 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 		}
 		dest[i] = '\0';
 	}
-	return (length_dest_str + length_src_str);
+	return (dlen + slen);
 }

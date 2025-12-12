@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:26:32 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/04 19:28:33 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/10 13:43:03 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_atoi(const char *str)
 	while (ft_isdigit(*str))
 		/* nb = nb * 10 + (prefix * (*str++ - '0'));
 		mine: more functional but multiplies every time*/
-		nb = nb * 10 - (*str++ - '\0');
+		nb = 10 * nb - (*str++ - '0');
 	if (!neg)
 		nb *= -1;
 	return (nb);

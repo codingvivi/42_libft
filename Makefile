@@ -45,10 +45,10 @@ SRCS = \
 	ft_isprint.c \
 	ft_strlen.c \
 	ft_strlcat.c \
-	ft_strncmp.c \
-
+	ft_atoi.c\
 
 SRCS_TO_ADD = \
+	ft_strncmp.c \
 	ft_memset.c \
 	ft_bzero.c \
 	ft_memcpy.c \
@@ -61,7 +61,6 @@ SRCS_TO_ADD = \
 	ft_tolower.c \
 	ft_strnstr.c \
 	ft_strchr.c \
-	ft_atoi.c
 
 OBJS = $(addprefix $(PTH_BLD_OBJ)/, $(SRCS:.c=.o))
 #$(info $(OBJS))

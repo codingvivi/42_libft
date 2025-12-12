@@ -2,11 +2,8 @@
 
 /*=======Automagically Detected Files To Include=====*/
 #include "unity.h"
-#include "../libft.h"
 #include "helpers.h"
-#include <ctype.h>
-#include <stdbool.h>
-#include <stdio.h>
+#include <string.h>
 
 /*=======Structure Used By Test Runner=====*/
 struct UnityRunTestParameters
@@ -19,9 +16,12 @@ struct UnityRunTestParameters
 /*=======External Functions This Runner Calls=====*/
 extern void setUp(void);
 extern void tearDown(void);
-extern void test_asciis_unsigned(void);
-extern void test_asciis_signed(void);
-extern void test_int_signed(void);
+extern void test_all_asciis(void);
+extern void test_empty_dest(void);
+extern void test_empty_src(void);
+extern void test_null_term_str_exit(void);
+extern void test_size_exit(void);
+extern void test_null_term_protect_exit(void);
 
 
 /*=======Mock Management=====*/
@@ -34,6 +34,9 @@ static void CMock_Verify(void)
 static void CMock_Destroy(void)
 {
 }
+
+/*=======Teardown (stub)=====*/
+void tearDown(void) {}
 
 /*=======Test Reset Options=====*/
 void resetTest(void);
@@ -82,20 +85,29 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 /*=======MAIN=====*/
 int main(void)
 {
-  UnityBegin("test/test_ft_isalnum.c");
+  UnityBegin("test/test_ft_strlcat.c");
 
-  int number_of_tests = 3;
+  int number_of_tests = 6;
   struct UnityRunTestParameters run_test_params_arr[number_of_tests];
 
-  run_test_params_arr[0].func = test_asciis_unsigned;
-  run_test_params_arr[0].name = "test_asciis_unsigned";
-  run_test_params_arr[0].line_num = 41;
-  run_test_params_arr[1].func = test_asciis_signed;
-  run_test_params_arr[1].name = "test_asciis_signed";
-  run_test_params_arr[1].line_num = 50;
-  run_test_params_arr[2].func = test_int_signed;
-  run_test_params_arr[2].name = "test_int_signed";
-  run_test_params_arr[2].line_num = 56;
+  run_test_params_arr[0].func = test_all_asciis;
+  run_test_params_arr[0].name = "test_all_asciis";
+  run_test_params_arr[0].line_num = 39;
+  run_test_params_arr[1].func = test_empty_dest;
+  run_test_params_arr[1].name = "test_empty_dest";
+  run_test_params_arr[1].line_num = 76;
+  run_test_params_arr[2].func = test_empty_src;
+  run_test_params_arr[2].name = "test_empty_src";
+  run_test_params_arr[2].line_num = 85;
+  run_test_params_arr[3].func = test_null_term_str_exit;
+  run_test_params_arr[3].name = "test_null_term_str_exit";
+  run_test_params_arr[3].line_num = 94;
+  run_test_params_arr[4].func = test_size_exit;
+  run_test_params_arr[4].name = "test_size_exit";
+  run_test_params_arr[4].line_num = 104;
+  run_test_params_arr[5].func = test_null_term_protect_exit;
+  run_test_params_arr[5].name = "test_null_term_protect_exit";
+  run_test_params_arr[5].line_num = 114;
 
   for (int i = 0; i < number_of_tests; i++)
   {

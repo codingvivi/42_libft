@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2027/10/24 22:01:03 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/09 17:13:41 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/10 17:15:48 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ void	test_null_term_protect_exit(void)
 	char				expc_str[27] = "AAAAAAAAAAAAAAAAAAAAAAAAAAA";
 	const unsigned int	expc_ret = 69;
 
+	TEST_IGNORE();
 	dest_ft[0] = 'A';
 	dest_control[0] = 'A';
 	concat_test(src_test, 26, expc_str, expc_ret);

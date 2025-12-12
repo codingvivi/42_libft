@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/10 17:46:40 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/11 19:54:02 by lrain            ###   ########.fr       */
+/*   Created: 2025/12/10 15:27:23 by lrain             #+#    #+#             */
+/*   Updated: 2025/12/10 16:17:58 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stddef.h>
+#include <stdio.h>
 
-size_t	strlcpy(char *dst, const char *src, size_t count)
+int	main(void)
 {
-	char	*dst_start;
+	char	*test_str;
+	int		length;
 
-	dst_start = dst;
-	if (count > 0)
-	{
-		count--;
-		while (count && *dst && *src)
-		{
-			*dst = *src;
-			count--;
-			src++;
-			dst++;
-		}
-		*dst = '\0';
-	}
-	/* distance copied + remaining length of src */
-	/* doesn't have to traverse src twice,or have it be at original position */
-	return ((dst - dst_start) + ft_strlen(src));
+	test_str = "42 chars long...null terminator included!!";
+	length = ft_strlen(test_str);
+	printf("the test string is:\n%s\n", test_str);
+	printf("length is:%d", length);
+	return (0);
 }
