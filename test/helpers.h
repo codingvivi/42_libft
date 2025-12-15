@@ -6,13 +6,16 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 16:47:54 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/09 16:57:46 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/15 09:56:49 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HELPERS_H
 
 // # include <assert.h>
+# include "../libft.h"
+# include "../unity/src/unity.h"
+# include <stdbool.h>
 # include <stdio.h>
 
 # ifdef VERBOSE
@@ -37,7 +40,7 @@
 # define INT_MIN_STR "-2147483648";
 # define EMPTY_STR "";
 
-char	*get_all_asciis(char *result);
+void	compare_as_bools(bool target, bool actual);
 
 # define HELPERS_H
 #endif

@@ -92,22 +92,22 @@ int main(void)
 
   run_test_params_arr[0].func = test_all_asciis;
   run_test_params_arr[0].name = "test_all_asciis";
-  run_test_params_arr[0].line_num = 39;
+  run_test_params_arr[0].line_num = 38;
   run_test_params_arr[1].func = test_empty_dest;
   run_test_params_arr[1].name = "test_empty_dest";
-  run_test_params_arr[1].line_num = 76;
+  run_test_params_arr[1].line_num = 75;
   run_test_params_arr[2].func = test_empty_src;
   run_test_params_arr[2].name = "test_empty_src";
-  run_test_params_arr[2].line_num = 85;
+  run_test_params_arr[2].line_num = 84;
   run_test_params_arr[3].func = test_null_term_str_exit;
   run_test_params_arr[3].name = "test_null_term_str_exit";
-  run_test_params_arr[3].line_num = 94;
+  run_test_params_arr[3].line_num = 93;
   run_test_params_arr[4].func = test_size_exit;
   run_test_params_arr[4].name = "test_size_exit";
-  run_test_params_arr[4].line_num = 104;
+  run_test_params_arr[4].line_num = 103;
   run_test_params_arr[5].func = test_null_term_protect_exit;
   run_test_params_arr[5].name = "test_null_term_protect_exit";
-  run_test_params_arr[5].line_num = 114;
+  run_test_params_arr[5].line_num = 113;
 
   for (int i = 0; i < number_of_tests; i++)
   {

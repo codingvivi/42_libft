@@ -2,11 +2,9 @@
 
 /*=======Automagically Detected Files To Include=====*/
 #include "unity.h"
-#include "../libft.h"
 #include "helpers.h"
 #include <ctype.h>
 #include <stdbool.h>
-#include <stdio.h>
 
 /*=======Structure Used By Test Runner=====*/
 struct UnityRunTestParameters
@@ -89,13 +87,13 @@ int main(void)
 
   run_test_params_arr[0].func = test_asciis_unsigned;
   run_test_params_arr[0].name = "test_asciis_unsigned";
-  run_test_params_arr[0].line_num = 41;
+  run_test_params_arr[0].line_num = 38;
   run_test_params_arr[1].func = test_asciis_signed;
   run_test_params_arr[1].name = "test_asciis_signed";
-  run_test_params_arr[1].line_num = 50;
+  run_test_params_arr[1].line_num = 47;
   run_test_params_arr[2].func = test_int_signed;
   run_test_params_arr[2].name = "test_int_signed";
-  run_test_params_arr[2].line_num = 56;
+  run_test_params_arr[2].line_num = 53;
 
   for (int i = 0; i < number_of_tests; i++)
   {

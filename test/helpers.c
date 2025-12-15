@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 20:09:56 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/04 18:16:12 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/15 09:56:29 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,11 @@ char	*get_all_asciis(char *str_ptr)
 		buffer[i] = i;
 	str_ptr = buffer;
 	return (str_ptr);
+}
+
+void	compare_as_bools(bool target, bool actual)
+{
+	TEST_ASSERT(target == actual);
+	VERBOSE_PRINT("✓ check ok! target: %d, actual: %d", ctrl_result,
+		test_result);
 }

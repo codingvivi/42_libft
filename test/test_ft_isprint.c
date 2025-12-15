@@ -6,17 +6,13 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 19:08:37 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/04 17:23:26 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/12 17:19:12 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
-#include "../unity/src/unity.h"
 #include "helpers.h"
-#include <assert.h>
 #include <ctype.h>
 #include <stdbool.h>
-#include <stdio.h>
 
 void	setUp(void)
 {

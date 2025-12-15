@@ -45,10 +45,10 @@ SRCS = \
 	ft_isprint.c \
 	ft_strlen.c \
 	ft_strlcat.c \
+	ft_strncmp.c \
 	ft_atoi.c\
 
 SRCS_TO_ADD = \
-	ft_strncmp.c \
 	ft_memset.c \
 	ft_bzero.c \
 	ft_memcpy.c \
@@ -92,10 +92,13 @@ test-all: $(TEST_BINS)
 		echo "\n"; \
 	done
 
-$(PTH_BLD_TEST_BIN)/%_Runner$(TARGET_EXTENSION): $(PTH_BLD_TEST_OBJ)/test_%.o $(NAME) $(PTH_BLD_TEST_OBJ)/test_%_Runner.o $(PTH_BLD_UNITY_OBJ)/unity.o | $(PTH_BLD_TEST_BIN)
+$(PTH_BLD_TEST_BIN)/%_Runner$(TARGET_EXTENSION): $(PTH_BLD_TEST_OBJ)/test_%.o $(NAME) $(PTH_BLD_TEST_OBJ)/test_%_Runner.o $(PTH_BLD_UNITY_OBJ)/unity.o $(PTH_BLD_TEST_OBJ)/helpers.o | $(PTH_BLD_TEST_BIN)
 	$(CC) $(LDFLAGS) $(LDLIBS) $^ -o $@
 
 $(PTH_BLD_TEST_OBJ)/test_%.o: $(PTH_SRC_TEST)/test_%.c | $(PTH_BLD_TEST_OBJ)
+	$(CC) $(CFLAGS) -I. -I$(PTH_SRC_UNITY) -I$(PTH_SRC_TEST) -c $< -o $@
+
+$(PTH_BLD_TEST_OBJ)/helpers.o: $(PTH_SRC_TEST)/helpers.c $(PTH_SRC_TEST)/helpers.h | $(PTH_BLD_TEST_OBJ)
 	$(CC) $(CFLAGS) -I. -I$(PTH_SRC_UNITY) -I$(PTH_SRC_TEST) -c $< -o $@
 
 $(PTH_BLD_TEST_OBJ)/test_%_Runner.o: $(PTH_BLD_TEST_RUNSRC)/test_%_Runner.c | $(PTH_BLD_TEST_OBJ)
