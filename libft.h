@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:27:30 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/15 09:44:03 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/15 17:56:04 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ int		ft_isprint(int c);
 int		ft_isascii(int c);
 
 size_t	ft_strlen(const char *str);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strncmp(const char *ss1, const char *ss2, size_t n);
 
+int		ft_memcmp(const void *lhs, const void *rhs, size_t count);
+void	*ft_memcpy(void *dest, const void *src, size_t count);
+void	*ft_memset(void *dest, int c, size_t count);
+void	*ft_memchr(const void *src, int c, size_t count);
 #endif

@@ -3,7 +3,9 @@
 /*=======Automagically Detected Files To Include=====*/
 #include "unity.h"
 #include "helpers.h"
-#include <string.h>
+#include <ctype.h>
+#include <memory.h>
+#include <stdbool.h>
 
 /*=======Structure Used By Test Runner=====*/
 struct UnityRunTestParameters
@@ -16,13 +18,8 @@ struct UnityRunTestParameters
 /*=======External Functions This Runner Calls=====*/
 extern void setUp(void);
 extern void tearDown(void);
-extern void test_greater(void);
-extern void test_lesser(void);
-extern void test_equal_strings_and_input(void);
-extern void test_empty_string(void);
-extern void test_n_0(void);
-extern void test_n_exit(void);
-extern void test_past_n(void);
+extern void test_all_asciis(void);
+extern void test_n_limit(void);
 
 
 /*=======Mock Management=====*/
@@ -83,32 +80,17 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 /*=======MAIN=====*/
 int main(void)
 {
-  UnityBegin("test/test_ft_strncmp.c");
+  UnityBegin("test/test_ft_memcpy.c");
 
-  int number_of_tests = 7;
+  int number_of_tests = 2;
   struct UnityRunTestParameters run_test_params_arr[number_of_tests];
 
-  run_test_params_arr[0].func = test_greater;
-  run_test_params_arr[0].name = "test_greater";
-  run_test_params_arr[0].line_num = 24;
-  run_test_params_arr[1].func = test_lesser;
-  run_test_params_arr[1].name = "test_lesser";
-  run_test_params_arr[1].line_num = 34;
-  run_test_params_arr[2].func = test_equal_strings_and_input;
-  run_test_params_arr[2].name = "test_equal_strings_and_input";
-  run_test_params_arr[2].line_num = 44;
-  run_test_params_arr[3].func = test_empty_string;
-  run_test_params_arr[3].name = "test_empty_string";
-  run_test_params_arr[3].line_num = 56;
-  run_test_params_arr[4].func = test_n_0;
-  run_test_params_arr[4].name = "test_n_0";
-  run_test_params_arr[4].line_num = 61;
-  run_test_params_arr[5].func = test_n_exit;
-  run_test_params_arr[5].name = "test_n_exit";
-  run_test_params_arr[5].line_num = 65;
-  run_test_params_arr[6].func = test_past_n;
-  run_test_params_arr[6].name = "test_past_n";
-  run_test_params_arr[6].line_num = 72;
+  run_test_params_arr[0].func = test_all_asciis;
+  run_test_params_arr[0].name = "test_all_asciis";
+  run_test_params_arr[0].line_num = 29;
+  run_test_params_arr[1].func = test_n_limit;
+  run_test_params_arr[1].name = "test_n_limit";
+  run_test_params_arr[1].line_num = 41;
 
   for (int i = 0; i < number_of_tests; i++)
   {

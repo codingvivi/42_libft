@@ -6,22 +6,25 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 21:39:07 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/15 09:42:28 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/15 15:42:45 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include <stdio.h>
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *ss1, const char *ss2, size_t n)
 {
-	size_t	i;
+	const unsigned char	*s1 = (void *)ss1;
+	const unsigned char	*s2 = (void *)ss2;
 
-	i = 0;
-	while (*s1 != '\0' && *s2 != '\0' && *s1 == *s2 && n < i)
+	if (!n--)
+		return (0);
+	while (n && *s1 && *s2 && (*s1 == *s2))
 	{
-		i++;
 		s1++;
 		s2++;
+		n--;
 	}
 	return (*s1 - *s2);
 }

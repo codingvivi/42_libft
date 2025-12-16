@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 16:47:54 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/15 09:56:49 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/15 18:10:07 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@
 # define EMPTY_STR "";
 
 void	compare_as_bools(bool target, bool actual);
+void	get_all_asciis(char *str_ptr);
+void	check_against_stdlib(char *tgt, char *act);
 
 # define HELPERS_H
 #endif

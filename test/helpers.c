@@ -6,27 +6,27 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 20:09:56 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/15 09:56:29 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/16 10:57:56 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "helpers.h"
 #include <stddef.h>
-#include <string.h>
 
-char	*get_all_asciis(char *str_ptr)
+void	get_all_asciis(char *str_ptr)
 {
-	char	buffer[128];
-
-	for (unsigned int i = 0; i < 128; i++)
-		buffer[i] = i;
-	str_ptr = buffer;
-	return (str_ptr);
+	for (int i = 0; i < 128; i++)
+		str_ptr[i] = i;
 }
 
 void	compare_as_bools(bool target, bool actual)
 {
+	VERBOSE_PRINT("target: %d, actual: %d", tgt, act);
 	TEST_ASSERT(target == actual);
-	VERBOSE_PRINT("✓ check ok! target: %d, actual: %d", ctrl_result,
-		test_result);
+}
+
+void	check_against_stdlib(char *tgt, char *act)
+{
+	VERBOSE_PRINT("target: %d, actual: %d", tgt, act);
+	TEST_ASSERT_EQUAL_STRING(tgt, act);
 }

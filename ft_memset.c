@@ -6,14 +6,18 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 14:15:13 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/05 21:45:28 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/15 16:30:40 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*memset(void *dest, int c, size_t count)
+void	*ft_memset(void *dest, int c, size_t count)
 {
-	if (!count)
-		return (dest);
+	unsigned char	*d;
+
+	d = dest;
+	while (count--)
+		*d++ = c;
+	return (dest);
 }

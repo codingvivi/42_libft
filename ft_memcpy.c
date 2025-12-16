@@ -6,19 +6,19 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 13:17:38 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/05 13:52:21 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/15 15:46:02 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*memcpy(void *dest, const void *src, size_t count)
+void	*ft_memcpy(void *dest, const void *src, size_t count)
 {
-	unsigned char		*c_dest;
-	const unsigned char	*c_src = src;
+	unsigned char		*d;
+	const unsigned char	*s = src;
 
-	c_dest = dest;
-	while (--count)
-		*c_dest++ = *c_src++;
+	d = dest;
+	while (count--)
+		*d++ = *s++;
 	return (dest);
 }
