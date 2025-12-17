@@ -71,7 +71,7 @@ TEST_BINS = $(addprefix $(PTH_BLD_TEST_BIN)/,$(addsuffix _Runner$(TARGET_EXTENSI
 
 .PRECIOUS: $(PTH_BLD_TEST_RUNSRC)/test_%_Runner.c $(PTH_BLD_TEST_OBJ)/test_%.o $(PTH_BLD_TEST_OBJ)/test_%_Runner.o
 
-.PHONY: all clean fclean re test test-all
+.PHONY: all test test-all
 
 all: $(NAME)
 
@@ -114,6 +114,8 @@ $(PTH_BLD_UNITY_OBJ)/unity.o: $(PTH_SRC_UNITY)/unity.c | $(PTH_BLD_UNITY_OBJ)
 $(PTH_BLD_OBJ) $(PTH_BLD_UNITY_OBJ) $(PTH_BLD_TEST_RUNSRC) $(PTH_BLD_TEST_OBJ) $(PTH_BLD_TEST_BIN):
 	@$(CMD_MKPTH) $@
 
+.PHONY: all clean fclean re retest
+
 clean:
 	@echo "Cleaning intermediate files..."
 	@$(CMD_CLEAN) $(OBJS)
@@ -125,3 +127,4 @@ fclean: clean
 	@$(CMD_CLEAN) -r $(PTH_BLD) 
 
 re: fclean all
+retest: fclean test

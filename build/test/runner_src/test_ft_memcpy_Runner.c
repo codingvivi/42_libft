@@ -3,9 +3,7 @@
 /*=======Automagically Detected Files To Include=====*/
 #include "unity.h"
 #include "helpers.h"
-#include <ctype.h>
 #include <memory.h>
-#include <stdbool.h>
 
 /*=======Structure Used By Test Runner=====*/
 struct UnityRunTestParameters
@@ -87,10 +85,10 @@ int main(void)
 
   run_test_params_arr[0].func = test_all_asciis;
   run_test_params_arr[0].name = "test_all_asciis";
-  run_test_params_arr[0].line_num = 29;
+  run_test_params_arr[0].line_num = 27;
   run_test_params_arr[1].func = test_n_limit;
   run_test_params_arr[1].name = "test_n_limit";
-  run_test_params_arr[1].line_num = 41;
+  run_test_params_arr[1].line_num = 39;
 
   for (int i = 0; i < number_of_tests; i++)
   {

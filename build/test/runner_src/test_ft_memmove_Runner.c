@@ -3,8 +3,11 @@
 /*=======Automagically Detected Files To Include=====*/
 #include "unity.h"
 #include "helpers.h"
+#include <assert.h>
 #include <memory.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /*=======Structure Used By Test Runner=====*/
 struct UnityRunTestParameters
@@ -17,8 +20,11 @@ struct UnityRunTestParameters
 /*=======External Functions This Runner Calls=====*/
 extern void setUp(void);
 extern void tearDown(void);
-extern void test_asciis_unsigned(void);
-extern void test_count_0(void);
+extern void test_all_asciis(void);
+extern void test_n_limit(void);
+extern void test_same_dest_src(void);
+extern void test_smaller_src(void);
+extern void test_larger_src(void);
 
 
 /*=======Mock Management=====*/
@@ -79,17 +85,26 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 /*=======MAIN=====*/
 int main(void)
 {
-  UnityBegin("test/test_ft_memchr.c");
+  UnityBegin("test/test_ft_memmove.c");
 
-  int number_of_tests = 2;
+  int number_of_tests = 5;
   struct UnityRunTestParameters run_test_params_arr[number_of_tests];
 
-  run_test_params_arr[0].func = test_asciis_unsigned;
-  run_test_params_arr[0].name = "test_asciis_unsigned";
-  run_test_params_arr[0].line_num = 27;
-  run_test_params_arr[1].func = test_count_0;
-  run_test_params_arr[1].name = "test_count_0";
-  run_test_params_arr[1].line_num = 48;
+  run_test_params_arr[0].func = test_all_asciis;
+  run_test_params_arr[0].name = "test_all_asciis";
+  run_test_params_arr[0].line_num = 42;
+  run_test_params_arr[1].func = test_n_limit;
+  run_test_params_arr[1].name = "test_n_limit";
+  run_test_params_arr[1].line_num = 64;
+  run_test_params_arr[2].func = test_same_dest_src;
+  run_test_params_arr[2].name = "test_same_dest_src";
+  run_test_params_arr[2].line_num = 80;
+  run_test_params_arr[3].func = test_smaller_src;
+  run_test_params_arr[3].name = "test_smaller_src";
+  run_test_params_arr[3].line_num = 105;
+  run_test_params_arr[4].func = test_larger_src;
+  run_test_params_arr[4].name = "test_larger_src";
+  run_test_params_arr[4].line_num = 130;
 
   for (int i = 0; i < number_of_tests; i++)
   {
