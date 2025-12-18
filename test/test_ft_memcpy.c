@@ -6,44 +6,42 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 14:34:47 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/16 15:46:58 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/17 18:37:37 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "helpers.h"
 #include <memory.h>
 
-#define ASCIISLEN 128
-
-void	setUp(void)
+void setUp(void)
 {
 }
 
-void	tearDown(void)
+void tearDown(void)
 {
 	// clean stuff up here
 }
 
-void	test_all_asciis(void)
+void test_all_asciis(void)
 {
-	char	source[ASCIISLEN] = {0};
-	char	target[ASCIISLEN] = {0};
-	char	actual[ASCIISLEN] = {0};
+	char source[NUM_OF_ASCIIS] = {0};
+	char target[NUM_OF_ASCIIS] = {0};
+	char actual[NUM_OF_ASCIIS] = {0};
 
 	get_all_asciis(source);
-	memcpy(source, target, ASCIISLEN);
-	ft_memcpy(source, actual, ASCIISLEN);
+	memcpy(source, target, NUM_OF_ASCIIS);
+	ft_memcpy(source, actual, NUM_OF_ASCIIS);
 	check_against_stdlib(target, actual);
 }
 
-void	test_n_limit(void)
+void test_n_limit(void)
 {
-	char	source[ASCIISLEN] = {0};
-	char	target[ASCIISLEN] = {0};
-	char	actual[ASCIISLEN] = {0};
+	char source[NUM_OF_ASCIIS] = {0};
+	char target[NUM_OF_ASCIIS] = {0};
+	char actual[NUM_OF_ASCIIS] = {0};
 
 	get_all_asciis(source);
-	memcpy(source, target, ASCIISLEN - 1);
-	ft_memcpy(source, actual, ASCIISLEN - 1);
+	memcpy(source, target, NUM_OF_ASCIIS - 1);
+	ft_memcpy(source, actual, NUM_OF_ASCIIS - 1);
 	check_against_stdlib(target, actual);
 }

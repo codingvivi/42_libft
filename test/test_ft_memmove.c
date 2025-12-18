@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 15:48:03 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/17 16:15:00 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/18 09:25:14 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#define ASCIISLEN 128
 
 static char *source;
 static char *target;
@@ -42,19 +40,19 @@ void tearDown(void)
 void test_all_asciis(void)
 {
 	// printf("Beginning...\n");
-	source = calloc(ASCIISLEN + 1, sizeof(char));
+	source = calloc(NUM_OF_ASCIIS + 1, sizeof(char));
 	assert(source);
-	target = calloc(ASCIISLEN + 1, sizeof(char));
+	target = calloc(NUM_OF_ASCIIS + 1, sizeof(char));
 	assert(target);
-	actual = calloc(ASCIISLEN + 1, sizeof(char));
+	actual = calloc(NUM_OF_ASCIIS + 1, sizeof(char));
 	assert(actual);
 
 	// printf("Alloced memory...\n");
 	get_all_asciis(source);
 	// printf("Inited source...\n");
-	memmove(source, target, ASCIISLEN);
+	memmove(source, target, NUM_OF_ASCIIS);
 	// printf("Ran control...\n");
-	ft_memmove(source, actual, ASCIISLEN);
+	ft_memmove(source, actual, NUM_OF_ASCIIS);
 	// printf("Ran actual...\n");
 
 	check_against_stdlib(target, actual);
@@ -63,23 +61,23 @@ void test_all_asciis(void)
 
 void test_n_limit(void)
 {
-	source = calloc(sizeof(char), ASCIISLEN + 1);
+	source = calloc(sizeof(char), NUM_OF_ASCIIS + 1);
 	assert(source);
-	target = calloc(sizeof(char), ASCIISLEN + 1);
+	target = calloc(sizeof(char), NUM_OF_ASCIIS + 1);
 	assert(target);
-	actual = calloc(sizeof(char), ASCIISLEN + 1);
+	actual = calloc(sizeof(char), NUM_OF_ASCIIS + 1);
 	assert(actual);
 
 	get_all_asciis(source);
-	memmove(source, target, ASCIISLEN - 1);
-	ft_memmove(source, actual, ASCIISLEN - 1);
+	memmove(source, target, NUM_OF_ASCIIS - 1);
+	ft_memmove(source, actual, NUM_OF_ASCIIS - 1);
 
 	check_against_stdlib(target, actual);
 }
 
 void test_same_dest_src(void)
 {
-	source = malloc(sizeof(char) * ASCIISLEN);
+	source = malloc(sizeof(char) * NUM_OF_ASCIIS);
 	assert(source);
 	get_all_asciis(source);
 
@@ -89,8 +87,8 @@ void test_same_dest_src(void)
 	target = source;
 	actual = source_dup;
 
-	memmove(target, source, ASCIISLEN - 1);
-	ft_memmove(actual, source_dup, ASCIISLEN - 1);
+	memmove(target, source, NUM_OF_ASCIIS - 1);
+	ft_memmove(actual, source_dup, NUM_OF_ASCIIS - 1);
 
 	check_against_stdlib(target, actual);
 
@@ -104,7 +102,7 @@ void test_same_dest_src(void)
 
 void test_smaller_src(void)
 {
-	source = malloc(sizeof(char) * ASCIISLEN);
+	source = malloc(sizeof(char) * NUM_OF_ASCIIS);
 	assert(source);
 	get_all_asciis(source);
 
@@ -114,8 +112,8 @@ void test_smaller_src(void)
 	target = source + 1;
 	actual = source_dup + 1;
 
-	memmove(target, source, ASCIISLEN - 1);
-	ft_memmove(actual, source_dup, ASCIISLEN - 1);
+	memmove(target, source, NUM_OF_ASCIIS - 1);
+	ft_memmove(actual, source_dup, NUM_OF_ASCIIS - 1);
 
 	check_against_stdlib(target, actual);
 
@@ -129,19 +127,19 @@ void test_smaller_src(void)
 
 void test_larger_src(void)
 {
-	char container_target[ASCIISLEN + 1] = {0};
+	char container_target[NUM_OF_ASCIIS + 1] = {0};
 	source = container_target + 1;
 	get_all_asciis(source);
 
-	char  container_actual[ASCIISLEN + 1] = {0};
+	char  container_actual[NUM_OF_ASCIIS + 1] = {0};
 	char *source_actual = container_actual + 1;
 	get_all_asciis(source_actual);
 
 	target = container_target;
 	actual = container_actual;
 
-	memmove(target, source, ASCIISLEN);
-	ft_memmove(actual, source_actual, ASCIISLEN);
+	memmove(target, source, NUM_OF_ASCIIS);
+	ft_memmove(actual, source_actual, NUM_OF_ASCIIS);
 
 	check_against_stdlib(target, actual);
 

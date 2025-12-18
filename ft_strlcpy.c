@@ -6,14 +6,14 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 17:46:40 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/11 19:54:02 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/18 22:07:18 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stddef.h>
 
-size_t	strlcpy(char *dst, const char *src, size_t count)
+size_t	ft_strlcpy(char *dst, const char *src, size_t count)
 {
 	char	*dst_start;
 
