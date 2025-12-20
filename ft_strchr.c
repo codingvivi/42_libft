@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 16:20:18 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/17 18:25:52 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/19 19:12:04 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ char	*ft_strchr(const char *str, int c)
 	if (*(unsigned char *)search_res == (unsigned char)c)
 		return (search_res);
 	else
-		return (0);
+		return (NULL);
 }

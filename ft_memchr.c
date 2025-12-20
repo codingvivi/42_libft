@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 16:34:13 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/17 17:50:54 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/19 19:10:04 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void	*ft_memchr(const void *src, int c, size_t count)
 	if (count)
 		return ((void *)s);
 	else
-		return (0);
+		return (NULL);
 }

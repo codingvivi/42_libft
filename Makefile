@@ -58,9 +58,11 @@ SRCS = \
 	ft_strnstr.c \
 	ft_toupper.c \
 	ft_tolower.c \
+	ft_strrchr.c \
+	ft_calloc.c \
+	ft_strdup.c \
 
 SRCS_TO_ADD = \
-	ft_strrchr.c \
 
 OBJS = $(addprefix $(PTH_BLD_OBJ)/, $(SRCS:.c=.o))
 #$(info $(OBJS))
