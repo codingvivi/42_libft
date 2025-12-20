@@ -8,4 +8,5 @@ campus-files
 *.bar
 CMakeLists.txt
 reference/
+temp/
 Archive*

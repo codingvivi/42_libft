@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/10 17:46:40 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/20 13:00:54 by lrain            ###   ########.fr       */
+/*   Created: 2025/12/20 11:51:59 by lrain             #+#    #+#             */
+/*   Updated: 2025/12/20 12:48:29 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stddef.h>
+#include <stdlib.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t count)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*dst_start;
+	const size_t	s_len = ft_strlen(s);
+	char			*ret;
 
-	dst_start = dst;
-	if (!count--)
-		return (ft_strlen(src));
-	while (count && *src)
-	{
-		*dst = *src;
-		count--;
-		src++;
-		dst++;
-	}
-	*dst = '\0';
-	/* distance copied + remaining length of src */
-	/* doesn't have to traverse src twice,or have it be at original position */
-	return ((dst - dst_start) + ft_strlen(src));
+	if (s_len < len)
+		len -= (len - s_len);
+	ret = malloc(len * sizeof(char));
+	if (!ret || start > (unsigned int)len)
+		return (NULL);
+	s += start;
+	return ((char *)ft_memcpy(ret, s, len));
 }

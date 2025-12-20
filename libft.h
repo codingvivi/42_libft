@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:27:30 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/20 11:02:48 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/20 12:14:24 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 # define LIBFT_H
 
 # include <stddef.h>
-
+/*ctype type checkers*/
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isprint(int c);
 int		ft_isascii(int c);
-
+/*ctype type checkers*/
 int		ft_toupper(int c);
 int		ft_tolower(int c);
-
+/*string.h*/
 size_t	ft_strlen(const char *str);
 int		ft_strncmp(const char *ss1, const char *ss2, size_t n);
 char	*ft_strchr(const char *str, int c);
@@ -32,7 +32,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t count);
 char	*ft_strrchr(const char *str, int c);
 size_t	ft_strlcpy(char *dst, const char *src, size_t count);
 size_t	ft_strlcat(char *dest, const char *src, size_t count);
-
+/* memory functions*/
 int		ft_memcmp(const void *lhs, const void *rhs, size_t count);
 void	*ft_memcpy(void *dest, const void *src, size_t count);
 void	*ft_memset(void *dest, int c, size_t count);
@@ -40,8 +40,10 @@ void	*ft_memchr(const void *src, int c, size_t count);
 void	*ft_memmove(void *dest, const void *src, size_t count);
 void	ft_bzero(void *s, size_t n);
 int		ft_atoi(const char *str);
-
+/* mallocs */
 char	*ft_strdup(const char *str1);
 void	*ft_calloc(size_t count, size_t size);
+/* additionals */
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif

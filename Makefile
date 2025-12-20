@@ -61,6 +61,7 @@ SRCS = \
 	ft_strrchr.c \
 	ft_calloc.c \
 	ft_strdup.c \
+	ft_substr.c \
 
 SRCS_TO_ADD = \
 
