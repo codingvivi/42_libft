@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:26:32 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/20 11:19:53 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/20 11:37:23 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_atoi(const char *str)
 static int	ft_isspace(int i)
 {
 	unsigned int		temp;
-	const signed int	range = '\r' - '\t';
+	const unsigned int	range = '\r' - '\t';
 
 	temp = (unsigned)i;
 	temp -= '\t';
