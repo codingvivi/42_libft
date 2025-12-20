@@ -6,11 +6,11 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 16:21:20 by lrain             #+#    #+#             */
-/*   Updated: 2025/11/22 15:59:22 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/20 11:31:38 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {

@@ -1,6 +1,6 @@
 
 CC = cc
-CFLAGS = -g -Werror -Wall -Wextra
+CFLAGS = -g -Werror -Wall -Wextra -Wpedantic
 LDFLAGS =
 LDLIBS =
 

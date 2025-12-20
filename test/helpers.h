@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 16:47:54 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/17 18:44:13 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/20 11:30:47 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 #define VERBOSE_PRINT(...)
 #endif
 
-#define NUM_OF_ASCIIS 127
+#define NUM_OF_ASCIIS 128
 
 #define LOWERCASE_LETTERS "abcdefghijklmnopqrstuvwxyz"
 #define UPPERCASE_LETTERS "ABCDEFGHIJKLMNOPQRSTUVWXYZ"

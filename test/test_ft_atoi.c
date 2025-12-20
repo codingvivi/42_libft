@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 10:41:48 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/10 12:55:01 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/20 11:22:29 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,20 @@
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /*                                  globals                                   */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-static char	*g_str_ft;
-static char	*g_str_control;
+static char *g_str_ft;
+static char *g_str_control;
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /*                                 functions                                  */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-extern int	ft_atoi(char *str);
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~ set up & tear down ~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-void	setUp(void)
+void setUp(void)
 {
 	g_str_ft = NULL;
 	g_str_control = NULL;
 }
 
-void	tearDown(void)
+void tearDown(void)
 {
 	if (g_str_ft != NULL)
 		free(g_str_ft);
@@ -46,12 +45,12 @@ void	tearDown(void)
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ helpers ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-void		create_test_str_copy(char *test_str, char **target_str_ptr);
-static void	returns_test_stdlib_control(void);
+void        create_test_str_copy(char *test_str, char **target_str_ptr);
+static void returns_test_stdlib_control(void);
 // static void	returns_test_hand_control(int expected_value);
-static void	modification_test(char *original_str);
+static void modification_test(char *original_str);
 
-static void	all_tests_stdlib_control(char *test_str)
+static void all_tests_stdlib_control(char *test_str)
 {
 	create_test_str_copy(test_str, &g_str_ft);
 	create_test_str_copy(test_str, &g_str_control);
@@ -67,16 +66,16 @@ static void	all_tests_stdlib_control(char *test_str)
 // 	modification_test(test_str);
 // }
 
-void	create_test_str_copy(char *test_str, char **target_str_ptr)
+void create_test_str_copy(char *test_str, char **target_str_ptr)
 {
-	*target_str_ptr = (char *)malloc(strlen(test_str) + 1);
+	*target_str_ptr = (char *) malloc(strlen(test_str) + 1);
 	if (*target_str_ptr == NULL)
-		return ;
+		return;
 	strcpy(*target_str_ptr, test_str);
-	return ;
+	return;
 }
 
-static void	returns_test_stdlib_control(void)
+static void returns_test_stdlib_control(void)
 {
 	TEST_ASSERT_EQUAL_INT(atoi(g_str_control), ft_atoi(g_str_ft));
 }
@@ -86,84 +85,82 @@ static void	returns_test_stdlib_control(void)
 // 	TEST_ASSERT_EQUAL_INT(expected_value, ft_atoi(g_str_ft));
 // }
 
-static void	modification_test(char *original_str)
+static void modification_test(char *original_str)
 {
-	TEST_ASSERT_EQUAL_STRING_MESSAGE(g_str_control, g_str_ft,
-		"String got modified differently than by stdlib atoi!");
-	TEST_ASSERT_EQUAL_STRING_MESSAGE(original_str, g_str_ft,
-		"string has changed from what it was before!");
+	TEST_ASSERT_EQUAL_STRING_MESSAGE(g_str_control, g_str_ft, "String got modified differently than by stdlib atoi!");
+	TEST_ASSERT_EQUAL_STRING_MESSAGE(original_str, g_str_ft, "string has changed from what it was before!");
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ runners ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-void	test_int_max(void)
+void test_int_max(void)
 {
 	all_tests_stdlib_control("2147483647");
 }
 
-void	test_int_min(void)
+void test_int_min(void)
 {
 	all_tests_stdlib_control("-2147483648");
 }
 
-void	test_empty(void)
+void test_empty(void)
 {
 	all_tests_stdlib_control("");
 }
 
-void	test_all_whitespace(void)
+void test_all_whitespace(void)
 {
-	char	test_string[] = WHITESPACE INT_MIN_STR;
+	char test_string[] = WHITESPACE INT_MIN_STR;
 
 	all_tests_stdlib_control(test_string);
 }
 
 // technically not needed, remainder from piscine
-void	test_no_number(void)
+void test_no_number(void)
 {
-	char	test_string[] = WHITESPACE "--------";
+	char test_string[] = WHITESPACE "--------";
 
 	all_tests_stdlib_control(test_string);
 }
 
-void	test_multi_0(void)
+void test_multi_0(void)
 {
-	char	test_string[] = WHITESPACE "---------00000000";
+	char test_string[] = WHITESPACE "---------00000000";
 
 	all_tests_stdlib_control(test_string);
 }
 
-void	test_multi_0_num(void)
+void test_multi_0_num(void)
 {
-	char	test_string[] = WHITESPACE "---------00000000" INT_MAX_STR;
+	char test_string[] = WHITESPACE "---------00000000" INT_MAX_STR;
 
 	all_tests_stdlib_control(test_string);
 }
 
-void	test_wrong_minus(void)
+void test_wrong_minus(void)
 {
-	char	test_string[] = WHITESPACE "---------00000000" INT_MIN_STR;
+	char test_string[] = WHITESPACE "---------00000000" INT_MIN_STR;
 
 	all_tests_stdlib_control(test_string);
 }
 
-void	test_plus_num(void)
+void test_plus_num(void)
 {
-	char	test_string[] = WHITESPACE "---++---+00000000" INT_MAX_STR;
+	char test_string[] = WHITESPACE "---++---+00000000" INT_MAX_STR;
 
 	all_tests_stdlib_control(test_string);
 }
 
-void	test_plus_multi_num(void)
+void test_plus_multi_num(void)
 {
-	char	test_string[] = WHITESPACE "+++++++++00000000" INT_MAX_STR;
+	char test_string[] = WHITESPACE "+++++++++00000000" INT_MAX_STR;
 
 	all_tests_stdlib_control(test_string);
 }
 
-void	test_invalid_chars(void)
+void test_invalid_chars(void)
 {
-	char	test_string[] = "0123456789";
-	char	c;
+	char test_string[] = "0123456789";
+	char c;
 
 	create_test_str_copy(test_string, &g_str_ft);
 	create_test_str_copy(test_string, &g_str_control);
@@ -183,62 +180,62 @@ void	test_invalid_chars(void)
 // originals from piscine
 void	test_no_number(void)
 {
-	char	test_string[] = WHITESPACE "--------";
+    char	test_string[] = WHITESPACE "--------";
 
-	all_tests_hand_control(test_string, 0);
+    all_tests_hand_control(test_string, 0);
 }
 
 void	test_multi_0(void)
 {
-	char	test_string[] = WHITESPACE "---------00000000";
+    char	test_string[] = WHITESPACE "---------00000000";
 
-	all_tests_hand_control(test_string, 0);
+    all_tests_hand_control(test_string, 0);
 }
 
 void	test_multi_0_num(void)
 {
-	char	test_string[] = WHITESPACE "---------00000000" INT_MAX_STR;
+    char	test_string[] = WHITESPACE "---------00000000" INT_MAX_STR;
 
-	all_tests_hand_control(test_string, -INT_MAX);
+    all_tests_hand_control(test_string, -INT_MAX);
 }
 
 void	test_wrong_minus(void)
 {
-	char	test_string[] = WHITESPACE "---------00000000" INT_MIN_STR;
+    char	test_string[] = WHITESPACE "---------00000000" INT_MIN_STR;
 
-	all_tests_hand_control(test_string, 0);
+    all_tests_hand_control(test_string, 0);
 }
 
 void	test_plus_num(void)
 {
-	char	test_string[] = WHITESPACE "---++---+00000000" INT_MAX_STR;
+    char	test_string[] = WHITESPACE "---++---+00000000" INT_MAX_STR;
 
-	all_tests_hand_control(test_string, INT_MAX);
+    all_tests_hand_control(test_string, INT_MAX);
 }
 
 void	test_plus_multi_num(void)
 {
-	char	test_string[] = WHITESPACE "+++++++++00000000" INT_MAX_STR;
+    char	test_string[] = WHITESPACE "+++++++++00000000" INT_MAX_STR;
 
-	all_tests_hand_control(test_string, INT_MAX);
+    all_tests_hand_control(test_string, INT_MAX);
 }
 
 void	test_invalid_chars(void)
 {
-	char	test_string[] = "0123456789";
-	char	c;
+    char	test_string[] = "0123456789";
+    char	c;
 
-	create_test_str_copy(test_string, &g_str_ft);
-	create_test_str_copy(test_string, &g_str_control);
-	c = 1;
-	while (c <= 126)
-	{
-		test_string[7] = c;
-		g_str_ft[7] = c;
-		g_str_control[7] = c;
-		returns_test_stdlib_control();
-		modification_test(test_string);
-		c++;
-	}
+    create_test_str_copy(test_string, &g_str_ft);
+    create_test_str_copy(test_string, &g_str_control);
+    c = 1;
+    while (c <= 126)
+    {
+        test_string[7] = c;
+        g_str_ft[7] = c;
+        g_str_control[7] = c;
+        returns_test_stdlib_control();
+        modification_test(test_string);
+        c++;
+    }
 }
 */
