@@ -6,11 +6,14 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:26:32 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/20 11:37:23 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/20 15:04:25 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/* nb = nb * 10 + (prefix * (*str++ - '0'));
+mine: more functional but multiplies every time*/
 
 static int	ft_isspace(int i);
 
@@ -30,8 +33,6 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	while (ft_isdigit(*str))
-		/* nb = nb * 10 + (prefix * (*str++ - '0'));
-		mine: more functional but multiplies every time*/
 		nb = 10 * nb - (*str++ - '0');
 	if (!neg)
 		nb *= -1;

@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 17:46:40 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/20 13:00:54 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/20 20:09:24 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t count)
 		dst++;
 	}
 	*dst = '\0';
-	/* distance copied + remaining length of src */
-	/* doesn't have to traverse src twice,or have it be at original position */
 	return ((dst - dst_start) + ft_strlen(src));
 }
+/* distance copied + remaining length of src */
+/* doesn't have to traverse src twice,or have it be at original position */

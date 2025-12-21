@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/19 18:09:14 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/20 15:14:36 by lrain            ###   ########.fr       */
+/*   Created: 2025/12/20 15:20:25 by lrain             #+#    #+#             */
+/*   Updated: 2025/12/20 20:19:14 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stddef.h>
 #include <stdlib.h>
 
-char	*ft_strdup(const char *str1)
+char	*ft_strjoin(char const *s1, char const *const s2)
 {
-	size_t	size;
-	char	*ret;
+	const size_t	len_s1 = ft_strlen(s1);
+	const size_t	len_s2 = ft_strlen(s2);
+	const size_t	fulllen = len_s1 + len_s2;
+	char			*dest;
 
-	size = ft_strlen(str1);
-	ret = malloc(size + 1);
-	if (!ret)
+	dest = malloc((fulllen + 1) * sizeof(char));
+	if (!dest)
 		return (NULL);
-	return (ft_memcpy(ret, str1, size + 1));
+	ft_memcpy(dest, s1, len_s1);
+	ft_memcpy(dest + len_s1, s2, len_s2);
+	dest[fulllen] = '\0';
+	return (dest);
 }
