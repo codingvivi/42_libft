@@ -6,15 +6,17 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 13:05:20 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/22 12:09:06 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/22 14:53:03 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdbool.h>
+#include <stddef.h>
 #include <stdlib.h>
 
 static unsigned int	occurences(const char *s, char c);
-static void			free_arr(char **arr);
+static void			free_arr(char **arr, size_t size);
 static char			**str_to_arr(const char *str, char delim, size_t n_words,
 						char **arr);
 
@@ -35,16 +37,23 @@ char	**ft_split(char const *s, char c)
 
 static unsigned int	occurences(const char *s, char c)
 {
-	unsigned int	n;
+	unsigned int	count;
+	bool			in_word;
 
-	n = 0;
+	count = 0;
+	in_word = false;
 	while (*s)
 	{
-		if (*s == c)
-			n++;
+		if (*s != c && !in_word)
+		{
+			in_word = true;
+			count++;
+		}
+		else if (*s == c && in_word)
+			in_word = false;
 		s++;
 	}
-	return (n);
+	return (count);
 }
 
 static char	**str_to_arr(const char *str, char delim, size_t n_words,
@@ -53,37 +62,37 @@ static char	**str_to_arr(const char *str, char delim, size_t n_words,
 	const char	*curr = str;
 	const char	*next;
 	size_t		i;
-	size_t		idx;
 	size_t		len;
 
 	i = 0;
-	idx = 0;
-	while (i++ < n_words - 1)
+	while (i < n_words)
 	{
 		next = ft_strchr(curr, delim);
 		len = next - curr;
-		arr[i] = ft_substr(str, idx, len);
-		if (!arr[i])
+		if (len)
 		{
-			free_arr(arr);
-			return (NULL);
+			arr[i] = ft_substr(curr, 0, len);
+			if (!arr[i])
+			{
+				free_arr(arr, i);
+				return (NULL);
+			}
+			i++;
 		}
-		curr = next;
-		idx += len + 1;
+		curr = next + 1;
 	}
-	arr[i++] = ft_substr(str, idx, ft_strlen(curr));
 	arr[i] = NULL;
 	return (arr);
 }
 
-static void	free_arr(char **arr)
+static void	free_arr(char **arr, size_t size)
 {
-	unsigned int	i;
+	size_t	i;
 
 	if (!arr)
 		return ;
 	i = 0;
-	while (arr[i])
+	while (i < size)
 		free(arr[i++]);
 	free(arr);
 }
