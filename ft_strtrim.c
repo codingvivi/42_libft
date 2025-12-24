@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 20:28:15 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/21 13:01:48 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/23 22:11:03 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,93 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-static bool	is_in_set(const char c, const char *set)
+enum
 {
-	while (*set++)
-		if (*set == c)
-			return (true);
-	return (false);
-}
-/* len_tail-- since it stops on last keep char*/
+	TRIM_START,
+	TRIM_END
+};
+
+enum
+{
+	RESULT_START,
+	RESULT_PTR
+};
+
+static char			*get_error_result(void);
+static const char	*find_body_start(const char *str, const char *set);
+static const char	*find_body_end(const char *start, const char *end,
+						const char *set);
+static bool			is_in_set(const char c, const char *set);
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char			*str;
-	char			*ret;
-	unsigned int	end_head;
-	size_t			len_tail;
-	size_t			len_keep;
+	char		*dest;
+	char		*result;
+	t_s_substr	trim_str;
 
-	end_head = 0;
-	len_keep = 0;
-	len_tail = 0;
-	str = (void *)s1;
-	while (is_in_set(*str++, set))
-		end_head++;
-	while (*str++)
-		len_keep++;
-	while (is_in_set(*str--, set))
-		len_tail++;
-	len_tail--;
-	len_keep -= len_tail;
-	ret = malloc((len_keep + 1) * sizeof(char));
-	if (!ret)
+	if (!s1 || !set)
 		return (NULL);
-	ret = ft_substr(s1, end_head, len_keep);
-	return (ret);
+	trim_str.len = ft_strlen(s1);
+	if (!trim_str.len)
+		return (get_error_result());
+	trim_str.start = find_body_start(s1, set);
+	if (!*trim_str.start)
+		return (get_error_result());
+	trim_str.end = find_body_end(trim_str.start, s1 + trim_str.len - 1, set);
+	if (!*trim_str.end)
+		return (get_error_result());
+	trim_str.len = (size_t)(trim_str.end - trim_str.start + 1);
+	result = malloc((trim_str.len + 1) * sizeof(char));
+	if (!result)
+		return (NULL);
+	dest = result;
+	while (trim_str.start <= trim_str.end)
+		*dest++ = *trim_str.start++;
+	*dest = '\0';
+	return (result);
+}
+
+static char	*get_error_result(void)
+{
+	char	*result;
+
+	result = malloc(sizeof(char));
+	if (result)
+		result[0] = '\0';
+	return (result);
+}
+
+static bool	is_in_set(const char c, const char *set)
+{
+	while (*set)
+	{
+		if (*set == c)
+			return (true);
+		set++;
+	}
+	return (false);
+}
+
+static const char	*find_body_start(const char *str, const char *set)
+{
+	while (*str)
+	{
+		if (!is_in_set(*str, set))
+			return (str);
+		str++;
+	}
+	return (str);
+}
+
+static const char	*find_body_end(const char *start, const char *end,
+		const char *set)
+
+{
+	while (end >= start)
+	{
+		if (!is_in_set(*end, set))
+			return (end);
+		end--;
+	}
+	return (end);
 }
