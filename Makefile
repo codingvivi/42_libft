@@ -75,12 +75,12 @@ SRCS = \
 	ft_lstnew.c \
 	ft_lstadd_front.c \
 	ft_lstsize.c \
-
-SRCS_TO_ADD = \
 	ft_lstlast.c \
 	ft_lstadd_back.c \
 	ft_lstdelone.c \
 	ft_lstclear.c \
+
+SRCS_TO_ADD = \
 	ft_lstiter.c \
 	ft_lstmap.c
 
