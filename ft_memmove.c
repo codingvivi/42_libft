@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 14:09:11 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/18 16:00:14 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/24 20:12:10 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,16 @@ void	*ft_memmove(void *dest, const void *src, size_t count)
 	char			*d;
 
 	d = dest;
-	/* subtract pointer adresses as numbers  */
 	distance = (uintptr_t)s - (uintptr_t)d;
 	if (d == s)
 		return (d);
-	/* if non overlap use (theoretically) faster memcpy */
 	if (distance - count <= overlap_range)
 		return (ft_memcpy(d, s, count));
-	/* if dest to the left, copy from right to left and vice versa*/
 	if (d < s)
+	{
 		while (count--)
 			*d++ = *s++;
+	}
 	else
 		while (count)
 		{
@@ -41,3 +40,6 @@ void	*ft_memmove(void *dest, const void *src, size_t count)
 		}
 	return (dest);
 }
+/* subtract pointer adresses as numbers  */
+/* if non overlap use (theoretically) faster memcpy */
+/* if dest to the left, copy from right to left and vice versa*/

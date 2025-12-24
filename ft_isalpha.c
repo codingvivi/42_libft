@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 01:23:38 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/20 15:07:00 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/24 18:30:08 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,20 @@
 
 adds 32 if number has 0 in
 adds 32 if 0-31 or 65-97
+
+for sane bit representation/the pattern to work
+unifies blocks of 64
+normalizes, sets the scale to 'a'
+only check for one range and only one side. wow...
+
 */
 
 int	ft_isalpha(int c)
 {
 	unsigned int	temp;
 
-	temp = (unsigned)c; /* for sane bit representation/the pattern to work */
-	temp |= 32;         /* unifies blocks of 64 */
-	temp -= 'a';        /* normalizes, sets the scale to 'a' */
-	return (temp < 26); /* only check for one range and only one side. wow... */
+	temp = (unsigned)c;
+	temp |= 32;
+	temp -= 'a';
+	return (temp < 26);
 }

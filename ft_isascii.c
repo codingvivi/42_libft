@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:44:21 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/20 15:09:02 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/24 18:32:27 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,10 @@ int	ft_isascii(int c)
 {
 	const int	mask = ~0x7f;
 
-	/* 127, reversed, masks bits up to 127*/
-	c &= mask;     /* only bits larger 127 will result in non 0*/
-	return (!(c)); /* if non masked, outside range bits let thru anything */
+	c &= mask;
+	return (!(c));
 }
+
+/* 127, reversed, masks bits up to 127*/
+/* only bits larger 127 will result in non 0*/
+/* if non masked, outside range bits let thru anything */
