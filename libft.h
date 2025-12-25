@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:27:30 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/24 18:09:44 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/25 17:29:36 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,25 @@
 
 # include <stddef.h>
 
-typedef struct
+typedef struct s_substr
 {
 	const char		*start;
 	const char		*end;
 	size_t			len;
-}					t_s_substr;
+}					t_substr;
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct s_full_list
+{
+	t_list			*start;
+	t_list			*end;
+	size_t			len;
+}					t_full_list;
 
 /*ctype type checkers*/
 int					ft_isalpha(int c);

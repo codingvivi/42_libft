@@ -72,8 +72,6 @@ SRCS = \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c \
-
-SRCS_BONUS = \
 	ft_lstnew.c \
 	ft_lstadd_front.c \
 	ft_lstsize.c \
@@ -84,9 +82,11 @@ SRCS_BONUS = \
 	ft_lstiter.c \
 	ft_lstmap.c
 
-SRCS_TO_ADD = \
+# SRCS_TO_ADD = \
 
-
+# ifneq (,$(filter bonus,$(MAKECMDGOALS)))
+#     SRCS += $(SRCS_BONUS)
+# endif
 
 
 OBJS = $(addprefix $(PTH_BLD_OBJ)/, $(SRCS:.c=.o))
@@ -108,6 +108,8 @@ $(NAME): $(OBJS)
 
 $(PTH_BLD_OBJ)/%.o: $(PTH_SRC)/%.c | $(PTH_BLD_OBJ)
 	$(CC) $(CFLAGS) -I. -c $< -o $@
+
+bonus: all
 
 test: test-all
 

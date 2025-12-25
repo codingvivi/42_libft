@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 20:28:15 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/23 22:11:03 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/25 15:29:07 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	char		*dest;
 	char		*result;
-	t_s_substr	trim_str;
+	t_substr	trim_str;
 
 	if (!s1 || !set)
 		return (NULL);
