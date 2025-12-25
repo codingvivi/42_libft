@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 18:12:06 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/25 19:05:52 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/25 20:49:23 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 	if (!nmemb || !size)
 		return (malloc(sizeof(char)));
-	if (size && nmemb > (size_t)-1 / size)
+	if (nmemb > (size_t)-1 / size)
 	{
 		errno = ENOMEM;
 		return (NULL);
