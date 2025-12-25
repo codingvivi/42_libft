@@ -82,7 +82,7 @@ The library includes the following functions:
     git clone https://github.com/codingvivi/42_libft.git
     cd 42_libft
     ```
-    or whatever URL and folder name the campus repo has
+    or whatever URL and folder name the campus repo has.
 2.  **Build the library:**
     To build the static library `libft.a`, run the `make` command:
     ```bash
@@ -98,6 +98,7 @@ The library includes the following functions:
     make test
     ```
     to run my own battery of tests.
+
 ### Usage
 
 To use the library in your C project:
@@ -118,7 +119,7 @@ To use the library in your C project:
 -   `make clean`: Removes the object files.
 -   `make fclean`: Removes the object files and the `libft.a` library file.
 -   `make re`: Re-compiles the library from scratch.
--   `make test`: Compiles and runs the tests.
+-   `make bonus: A legacy rule to check against older external testers who still use bonus for the linked lists.
 
 ## Resources
 ### References

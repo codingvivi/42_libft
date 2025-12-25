@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 14:09:11 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/24 20:12:10 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/25 19:13:39 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,8 @@ void	*ft_memmove(void *dest, const void *src, size_t count)
 			*d++ = *s++;
 	}
 	else
-		while (count)
-		{
-			count--;
+		while (count--)
 			d[count] = s[count];
-		}
 	return (dest);
 }
 /* subtract pointer adresses as numbers  */

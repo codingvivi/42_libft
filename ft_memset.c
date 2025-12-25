@@ -6,11 +6,11 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 14:15:13 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/15 16:30:40 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/25 19:14:00 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 void	*ft_memset(void *dest, int c, size_t count)
 {

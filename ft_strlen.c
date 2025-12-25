@@ -6,11 +6,10 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 16:09:07 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/03 19:53:54 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/25 19:19:04 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stddef.h>
 
 size_t	ft_strlen(const char *start)

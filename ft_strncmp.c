@@ -6,12 +6,11 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 21:39:07 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/19 17:46:12 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/25 19:19:28 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include <stdio.h>
 
 int	ft_strncmp(const char *ss1, const char *ss2, size_t n)
 {

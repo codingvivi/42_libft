@@ -6,11 +6,11 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 21:37:34 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/20 13:09:24 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/25 19:20:05 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 static int	is_match(const char *str, const char *to_find, size_t count)
 

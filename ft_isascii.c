@@ -6,12 +6,11 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:44:21 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/24 18:32:27 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/25 19:07:31 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <ctype.h>
 
 /*
 unsigned example:

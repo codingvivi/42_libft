@@ -6,13 +6,12 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 13:05:20 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/22 14:53:03 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/25 19:16:02 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdbool.h>
-#include <stddef.h>
 #include <stdlib.h>
 
 static unsigned int	occurences(const char *s, char c);

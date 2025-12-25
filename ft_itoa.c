@@ -6,12 +6,10 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 18:52:24 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/23 16:13:06 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/25 19:09:31 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
-#include <stddef.h>
 #include <stdlib.h>
 
 /* negative number i casts to max - i = x, x = number with distance i of max

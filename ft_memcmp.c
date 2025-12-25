@@ -6,12 +6,11 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 14:00:40 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/19 19:14:12 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/25 19:12:38 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+#include <stddef.h>
 
 int	ft_memcmp(const void *lhs, const void *rhs, size_t count)
 {

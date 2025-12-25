@@ -6,25 +6,13 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 20:28:15 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/25 15:29:07 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/25 19:27:19 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdbool.h>
 #include <stdlib.h>
-
-enum
-{
-	TRIM_START,
-	TRIM_END
-};
-
-enum
-{
-	RESULT_START,
-	RESULT_PTR
-};
 
 static char			*get_error_result(void);
 static const char	*find_body_start(const char *str, const char *set);

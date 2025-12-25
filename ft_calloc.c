@@ -6,14 +6,13 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 18:12:06 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/25 13:55:06 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/25 19:05:52 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <errno.h>
 #include <stdlib.h>
-#include <string.h>
 
 /*
 if count * size > SIZE_MAX
@@ -35,5 +34,5 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ret = malloc(nmemb * size);
 	if (!ret)
 		return (NULL);
-	return (memset(ret, 0, size));
+	return (ft_memset(ret, 0, size));
 }
