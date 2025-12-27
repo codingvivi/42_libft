@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
+/*   By: lrain <lrain@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 15:47:03 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/25 19:11:02 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/25 21:37:01 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,22 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_full_list	newlst;
-	t_list		*temp;
+	void		*temp;
 
+	newlst = (t_full_list){0};
 	if (!lst || !f)
 		return (NULL);
-	newlst = (t_full_list){0};
 	while (lst)
 	{
-		temp = ft_lstnew(f(lst->content));
-		if (!temp)
+		temp = f(lst->content);
+		newlst.tempnode = ft_lstnew(temp);
+		if (!newlst.tempnode)
 		{
-			ft_lstclear(&newlst.end, del);
+			del(temp);
+			ft_lstclear(&newlst.start, del);
 			return (NULL);
 		}
-		ft_lstadd_back(&newlst.end, temp);
+		ft_lstadd_back(&newlst.end, newlst.tempnode);
 		if (!newlst.start)
 			newlst.start = newlst.end;
 		newlst.len++;

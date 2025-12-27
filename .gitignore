@@ -12,5 +12,6 @@ CMakeLists.txt
 unity/
 ref/
 temp/
+buildi/
 
 Archive*

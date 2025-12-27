@@ -33,6 +33,7 @@ typedef struct s_full_list
 {
 	t_list			*start;
 	t_list			*end;
+	t_list			*tempnode;		
 	size_t			len;
 }					t_full_list;
 
