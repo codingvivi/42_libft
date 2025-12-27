@@ -1,8 +1,8 @@
 *This project has been created as part of the 42 curriculum by lrain.*
 
 # Libft
-
-My (re)implementation of some of the libc functions as part of the first 42 project, libft.
+My (re)implementation of some of the libc functions
+as part of the first 42 project, libft.
 
 Instead of writing the same functions from the piscine for the millionth time now,
 I decided to look at how the profis do it,
@@ -18,9 +18,9 @@ For testing
 I used [Unity](https://www.throwtheswitch.org/unity),
 since it eliminated a lot of boilerplating
 and copypasting
-## Library Functions
 
-The library includes the following functions:
+## Description
+As per the guidelines, my library includes the following:
 
 ### Libc Functions
 
@@ -62,7 +62,7 @@ The library includes the following functions:
 *   `ft_putendl_fd`: Writes a string `s` to the given file descriptor `fd`, followed by a newline.
 *   `ft_putnbr_fd`: Writes an integer `n` to the given file descriptor `fd`.
 
-### Linked list
+### Linked list (formerly bonus)
 *   `ft_lstnew`: Creates a new list element (node) with the given `content`.
 *   `ft_lstadd_front`: Adds the element `new` to the beginning of the list `lst`.
 *   `ft_lstsize`: Counts the number of elements in a list.
@@ -146,3 +146,6 @@ Google Gemini Pro 2.5 and 3.0
 was used as a conversational aide to understand some of the reference code used for this project,
 mainly some of the musl reimplementations
 and Makefile code.
+It also helped formatting the references,
+since I was having export issues
+out of Zotero.
