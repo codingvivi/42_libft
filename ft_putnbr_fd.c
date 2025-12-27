@@ -6,7 +6,7 @@
 /*   By: lrain <lrain@students.42berlin.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 12:17:16 by lrain             #+#    #+#             */
-/*   Updated: 2025/12/23 19:02:19 by lrain            ###   ########.fr       */
+/*   Updated: 2025/12/25 20:48:58 by lrain            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	itoa_fwd_fd(const int n_original, unsigned int nb, int fd)
 		nb %= place_val;
 		place_val /= 10;
 	}
-	if (n_original != 0 && (n_original % place_val) == 0)
+	if (place_val && n_original != 0 && (n_original % place_val) == 0)
 	{
 		while (place_val)
 		{
