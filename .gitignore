@@ -8,6 +8,7 @@ campus-files
 *.out
 *.bar
 CMakeLists.txt
+._* 
 
 unity/
 ref/
